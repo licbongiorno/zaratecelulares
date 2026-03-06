@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Expertos Celulares | Reparación de Celulares en Río Segundo</title>
 <meta name="description" content="Servicio técnico de celulares en Río Segundo Córdoba. Cambio de pantalla, baterías, reparación de iPhone, Samsung, Motorola y Xiaomi. Atención rápida y garantía.">
@@ -19,6 +18,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <meta property="og:site_name" content="Expertos Celulares">
 <meta property="og:title" content="Expertos Celulares | Reparación de Celulares en Río Segundo">
@@ -33,12 +33,15 @@
 <meta name="twitter:description" content="Servicio técnico de celulares en Río Segundo Córdoba. Cambio de pantalla, baterías y software.">
 <meta name="twitter:image" content="https://expertoscelulares.com.ar/preview.jpg">
 
+<meta name="format-detection" content="telephone=no">
+<meta name="google" content="nositelinkssearchbox">
+
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "MobilePhoneStore",
  "name": "Expertos Celulares",
- "image": "https://expertoscelulares.com.ar/logo1.png",
+ "image": "https://expertoscelulares.com.ar/logo1.svg",
  "telephone": "+5493572409473",
  "url": "https://expertoscelulares.com.ar",
  "address": {
@@ -67,6 +70,15 @@
    "opens": "12:00",
    "closes": "20:00"
  }],
+ "aggregateRating": {
+   "@type": "AggregateRating",
+   "ratingValue": "4.9",
+   "reviewCount": "86"
+ },
+ "makesOffer": [
+   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cambio de pantalla" } },
+   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cambio de batería" } }
+ ],
  "sameAs": [
    "https://www.instagram.com/tu_cuenta",
    "https://www.facebook.com/tu_cuenta",
@@ -125,7 +137,7 @@ img { max-width: 100%; height: auto; }
 @media (min-width: 768px) {
   body::before {
     content:''; position: fixed; inset: 0;
-    background-image: url("data:image/png+xml,%3Cpng viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/png'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/png%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 0; opacity: 0.5;
   }
 }
@@ -224,9 +236,18 @@ nav { display: flex; align-items: center; gap: 36px; }
 .stat-num span { color:var(--orange); }
 .stat-label { color:var(--muted); font-size:0.85rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-top:6px; line-height: 1.4; }
 
-/* ─── TICKER ─── */
+/* ─── TICKER (BANNER) ─── */
 .ticker-wrap { background: var(--orange); overflow:hidden; padding:12px 0; position:relative; }
-.ticker-track { display:flex; white-space:nowrap; animation: ticker 25s linear infinite; }
+
+/* 👇 AQUÍ REGULAS LA VELOCIDAD DEL BANNER (TICKER) 👇 */
+/* Cambiá el '12s' a un número menor para que vaya más rápido o mayor para más lento */
+.ticker-track { 
+  display: flex; 
+  white-space: nowrap; 
+  animation: ticker 12s linear infinite; 
+}
+/* ☝️ ------------------------------------------------ ☝️ */
+
 .ticker-track span { font-family:var(--font-display); font-weight:900; font-size:1rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--black); padding:0 25px; }
 .ticker-track span.dot { color:var(--black); opacity:0.4; padding:0 5px; }
 
@@ -326,6 +347,11 @@ section { position:relative; z-index:1; padding: 100px 5%; }
 .info-card-text span { color:var(--muted); font-size:0.9rem; display:block; }
 .map-container { border-radius:16px; overflow:hidden; border:2px solid var(--border); height:400px; box-shadow:0 15px 40px rgba(0,0,0,0.4); position:relative; }
 .map-container iframe { width:100%; height:100%; border:none; filter:grayscale(20%) contrast(1.1); }
+
+/* ─── SEO LOCAL INTEGRADO (BLOQUE VISIBLE) ─── */
+.seo-local-block { background: var(--surface2); padding: 40px 5%; border-top: 1px solid var(--border); text-align: center; }
+.seo-local-block h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--orange); text-transform: uppercase; margin-bottom: 15px; }
+.seo-local-block p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 800px; margin: 0 auto 10px auto; }
 
 /* ─── FOOTER ─── */
 footer { background:var(--black); border-top:1px solid var(--border); padding:60px 5% 30px; }
@@ -429,7 +455,7 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 <header id="mainHeader">
   <div class="brand-container">
     <a href="#" aria-label="Inicio">
-      <img src="logo1.png" alt="Expertos Celulares servicio técnico en Río Segundo" loading="lazy" class="logo-img">
+      <img src="logo1.svg" alt="Expertos Celulares servicio técnico en Río Segundo" loading="lazy" class="logo-img">
     </a>
   </div>
   <nav aria-label="Navegación principal">
@@ -517,12 +543,6 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
     <span>⚡ REPARACIÓN EXPRESS</span><span class="dot">•</span>
     <span>💾 LIBERACIONES</span><span class="dot">•</span>
     <span>📲 ACCESORIOS</span><span class="dot">•</span>
-.ticker-track { 
-  display: flex; 
-  white-space: nowrap; 
-  /* Bajamos el tiempo a 6s para duplicar la velocidad */
-  animation: ticker 6s linear infinite; 
-}
   </div>
 </div>
 
@@ -708,6 +728,12 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
   </div>
 </section>
 
+<div class="seo-local-block reveal">
+  <h2>Servicio técnico de celulares en Río Segundo</h2>
+  <p>En Expertos Celulares realizamos reparación de celulares en Río Segundo Córdoba. Reparamos equipos iPhone, Samsung, Motorola y Xiaomi.</p>
+  <p>Realizamos cambio de pantalla, cambio de batería, reparación de carga, problemas de software, desbloqueos y recuperación de equipos mojados.</p>
+</div>
+
 <section id="ubicacion">
   <div style="text-align:center; margin-bottom:50px;">
     <span class="section-label reveal">Te esperamos</span>
@@ -751,7 +777,7 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 <footer>
   <div class="footer-top">
     <div class="footer-brand reveal">
-      <img src="logo1.png" alt="Expertos Celulares - Servicio técnico de celulares en Río Segundo" loading="lazy">
+      <img src="logo1.svg" alt="Expertos Celulares - Servicio técnico de celulares en Río Segundo" loading="lazy">
       <p>Servicio técnico de celulares en Río Segundo. Cambio de pantalla, baterías, software y venta de equipos.</p>
       <div class="footer-local-info" style="margin-top: 20px;">
         <p><i class="fas fa-map-marker-alt"></i> Entre Ríos 603, Río Segundo</p>
