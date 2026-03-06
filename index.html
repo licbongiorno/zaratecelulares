@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
@@ -42,7 +41,7 @@
  "@context": "https://schema.org",
  "@type": "MobilePhoneStore",
  "name": "Expertos Celulares",
- "image": "https://expertoscelulares.com.ar/logo1.png",
+ "image": "https://expertoscelulares.com.ar/logo1.svg",
  "telephone": "+5493572409473",
  "url": "https://expertoscelulares.com.ar",
  "address": {
@@ -126,7 +125,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* MEJORAS UX MÓVIL Y ACCESIBILIDAD GENERALES */
+/* MEJORAS UX MÓVIL Y ACCESIBILIDAD */
 input, textarea, select, button { font-size: 16px; }
 img { max-width: 100%; height: auto; }
 
@@ -134,11 +133,11 @@ img { max-width: 100%; height: auto; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
 
-/* EFECTO DE RUIDO OPTIMIZADO (Solo Desktop) */
+/* EFECTO DE RUIDO OPTIMIZADO */
 @media (min-width: 768px) {
   body::before {
     content:''; position: fixed; inset: 0;
-    background-image: url("data:image/png+xml,%3Cpng viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/png'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/png%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none; z-index: 0; opacity: 0.5;
   }
 }
@@ -212,7 +211,7 @@ nav { display: flex; align-items: center; gap: 36px; }
 .mobile-socials a { font-size:2rem; color: var(--muted); transition: color 0.3s; }
 .mobile-socials a:hover { color: var(--orange); }
 
-/* ─── HERO ─── */
+/* ─── HERO Y BOTONES ─── */
 .hero { min-height: 100vh; display: flex; flex-direction:column; justify-content:center; align-items:flex-start; padding: 100px 5% 60px; position: relative; overflow: hidden; }
 .hero-grid { position:absolute; inset:0; background-image: linear-gradient(rgba(255,102,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,102,0,0.05) 1px, transparent 1px); background-size: 60px 60px; pointer-events:none; }
 .hero-bg-text { position:absolute; right:-2%; bottom: -5%; font-family: var(--font-display); font-size: clamp(6rem, 20vw, 20rem); font-weight: 900; line-height:1; color: rgba(255,102,0,0.03); text-transform: uppercase; pointer-events:none; user-select:none; white-space:nowrap; }
@@ -237,7 +236,7 @@ nav { display: flex; align-items: center; gap: 36px; }
 .stat-num span { color:var(--orange); }
 .stat-label { color:var(--muted); font-size:0.85rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-top:6px; line-height: 1.4; }
 
-/* ─── TICKER (BANNER ANIMADO A 12s) ─── */
+/* ─── TICKER A 12S ─── */
 .ticker-wrap { background: var(--orange); overflow:hidden; padding:12px 0; position:relative; }
 .ticker-track { display: flex; white-space: nowrap; animation: ticker 12s linear infinite; }
 .ticker-track span { font-family:var(--font-display); font-weight:900; font-size:1rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--black); padding:0 25px; }
@@ -250,14 +249,18 @@ section { position:relative; z-index:1; padding: 100px 5%; }
 .section-title span { color:var(--orange); }
 .section-sub { color:var(--muted); font-size:1.05rem; line-height:1.6; max-width:600px; }
 
-/* ─── DIAGNÓSTICO EXPRESS (NUEVO CSS) ─── */
-.diag-container { max-width: 500px; margin: 0 auto; background: var(--surface2); padding: 30px; border-radius: 16px; border: 1px solid var(--border); text-align: center; }
+/* ─── NUEVO DIAGNÓSTICO PROFUNDO (28 ÍTEMS CSS) ─── */
+.diag-container { max-width: 800px; margin: 0 auto; background: var(--surface2); padding: 30px; border-radius: 16px; border: 1px solid var(--border); text-align: center; }
 .loader-bar { width: 100%; height: 10px; background: var(--surface3); border-radius: 5px; margin: 20px 0; overflow: hidden; }
-#progress-fill { width: 0%; height: 100%; background: var(--orange); transition: width 0.3s; }
-.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-.result-item { background: var(--black); padding: 15px; border-radius: 10px; border: 1px solid rgba(255,102,0,0.2); }
-.res-label { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 5px; }
-.res-value { font-weight: 800; color: var(--orange); }
+#progress-fill { width: 0%; height: 100%; background: var(--orange); transition: width 0.1s linear; }
+
+/* Grilla del reporte técnico avanzado */
+.result-grid-ext { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 20px; text-align: left; max-height: 450px; overflow-y: auto; padding: 15px; background: var(--black); border-radius: 10px; border: 1px solid var(--surface3); }
+.res-ext-item { padding: 12px; border-bottom: 1px solid rgba(255,102,0,0.1); display: flex; flex-direction: column; justify-content: center; }
+.res-ext-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+.res-ext-label i { color: var(--orange); font-size: 0.9rem; }
+.res-ext-value { font-weight: 800; color: var(--white); font-size: 1.05rem; }
+.res-ext-value.highlight { color: var(--orange); }
 
 /* ─── PROBLEMAS COMUNES ─── */
 .problems-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
@@ -389,7 +392,7 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.5); } }
 @keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
-/* ─── RESPONSIVE MÓVIL (HEADER 65PX) ─── */
+/* ─── RESPONSIVE MÓVIL ─── */
 @media (max-width: 1024px) {
   .faq-layout { grid-template-columns: 1fr; gap: 40px; }
   .faq-sidebar { position: static; }
@@ -456,12 +459,12 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 <header id="mainHeader">
   <div class="brand-container">
     <a href="#" aria-label="Inicio">
-      <img src="logo1.png" alt="Expertos Celulares servicio técnico en Río Segundo" loading="lazy" class="logo-img">
+      <img src="logo1.svg" alt="Expertos Celulares servicio técnico en Río Segundo" loading="lazy" class="logo-img">
     </a>
   </div>
   <nav aria-label="Navegación principal">
     <ul class="nav-links">
-      <li><a href="#diagnostico">Test Gratis</a></li>
+      <li><a href="#diagnostico">Scanner V2</a></li>
       <li><a href="#problemas">Problemas</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#ubicacion">Local</a></li>
@@ -548,39 +551,53 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 
 <section id="diagnostico" class="reveal">
   <div style="text-align:center; margin-bottom:40px;">
-    <span class="section-label">Herramienta Gratuita</span>
-    <h2 class="section-title">Diagnóstico <span>Express</span></h2>
-    <p class="section-sub" style="margin:0 auto;">Probá el rendimiento real de tu equipo ahora mismo.</p>
+    <span class="section-label">Scanner de Hardware</span>
+    <h2 class="section-title">Auditoría <span>Técnica</span></h2>
+    <p class="section-sub" style="margin:0 auto;">Ejecutá un escaneo en tiempo real de los componentes internos de tu equipo.</p>
   </div>
 
   <div class="diag-container">
     <div id="diag-start">
-      <p>Nuestra herramienta medirá la velocidad de procesamiento, respuesta de pantalla y conexión de tu equipo.</p>
-      <button onclick="runDiagnostic()" class="btn-primary" style="margin-top:20px; width:100%;">INICIAR TEST GRATIS</button>
+      <p>Este test leerá parámetros de CPU, GPU, memoria, sensores, conectividad y batería directamente desde tu navegador.</p>
+      <button onclick="runExtremeDiagnostic()" class="btn-primary" style="margin-top:20px; width:100%;">INICIAR ESCANEO PROFUNDO</button>
     </div>
 
     <div id="diag-running" style="display:none;">
       <div class="loader-bar"><div id="progress-fill"></div></div>
-      <p id="diag-status">Analizando procesador...</p>
+      <p id="diag-status" style="font-family: var(--font-display); font-size: 1.2rem; color: var(--orange); text-transform: uppercase; letter-spacing: 1px;">Iniciando protocolos de lectura...</p>
     </div>
 
     <div id="diag-results" style="display:none;">
-      <div class="result-grid">
-        <div class="result-item">
-          <span class="res-label">Procesador</span>
-          <span id="res-cpu" class="res-value">--</span>
-        </div>
-        <div class="result-item">
-          <span class="res-label">Conexión</span>
-          <span id="res-net" class="res-value">--</span>
-        </div>
-        <div class="result-item">
-          <span class="res-label">Estado General</span>
-          <span id="res-health" class="res-value">--</span>
-        </div>
+      <div class="result-grid-ext">
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-microchip"></i> CPU (Núcleos)</span><span id="res-cpu-cores" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-tachometer-alt"></i> Benchmark CPU</span><span id="res-perf" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-memory"></i> RAM Estimada</span><span id="res-ram" class="res-ext-value">--</span></div>
+        
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-hdd"></i> Disco Total (Navegador)</span><span id="res-storage-total" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-sd-card"></i> Espacio Libre</span><span id="res-storage-free" class="res-ext-value">--</span></div>
+        
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-gamepad"></i> Procesador Gráfico</span><span id="res-gpu" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-expand-arrows-alt"></i> Resolución Nativa</span><span id="res-screen" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-palette"></i> Perfil de Color</span><span id="res-gamut" class="res-ext-value">--</span></div>
+        
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-battery-half"></i> Nivel de Batería</span><span id="res-battery-level" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-bolt"></i> Estado de Carga</span><span id="res-battery-status" class="res-ext-value">--</span></div>
+        
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-hand-pointer"></i> Puntos Multi-Touch</span><span id="res-touch" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-compass"></i> Acelerómetro/Giro.</span><span id="res-gyro" class="res-ext-value">--</span></div>
+        
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-wifi"></i> Conexión (Tipo)</span><span id="res-net-type" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-download"></i> Velocidad Bajada</span><span id="res-net-speed" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-network-wired"></i> Latencia (Ping)</span><span id="res-ping" class="res-ext-value">--</span></div>
+        
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fab fa-android"></i> OS / Plataforma</span><span id="res-os" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-globe"></i> Idioma Sistema</span><span id="res-lang" class="res-ext-value">--</span></div>
+        <div class="res-ext-item"><span class="res-ext-label"><i class="fas fa-laptop-code"></i> Motor Web</span><span id="res-engine" class="res-ext-value">--</span></div>
       </div>
-      <div id="diag-advice" style="margin-top:20px; padding:15px; background:rgba(255,102,0,0.1); border-radius:8px; font-size:0.9rem;"></div>
-      <a href="https://wa.me/5493572409473?text=Hola!%20Hice%20el%20test%20y%20me%20dio%20resultado:%20" id="wa-result-link" class="btn-primary" style="margin-top:20px; width:100%;" target="_blank">RESERVAR TURNO DE REPARACIÓN</a>
+      
+      <div id="diag-advice" style="margin-top:20px; padding:20px; background:rgba(255,102,0,0.1); border-left: 4px solid var(--orange); border-radius:8px; font-size:0.95rem; text-align:left;"></div>
+      
+      <a href="#" id="wa-result-link" class="btn-primary" style="margin-top:20px; width:100%;" target="_blank">ENVIAR REPORTE AL TÉCNICO</a>
     </div>
   </div>
 </section>
@@ -816,7 +833,7 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 <footer>
   <div class="footer-top">
     <div class="footer-brand reveal">
-      <img src="logo1.png" alt="Expertos Celulares - Servicio técnico de celulares en Río Segundo" loading="lazy">
+      <img src="logo1.svg" alt="Expertos Celulares - Servicio técnico de celulares en Río Segundo" loading="lazy">
       <p>Servicio técnico de celulares en Río Segundo. Cambio de pantalla, baterías, software y venta de equipos.</p>
       <div class="footer-local-info" style="margin-top: 20px;">
         <p><i class="fas fa-map-marker-alt"></i> Entre Ríos 603, Río Segundo</p>
@@ -855,7 +872,6 @@ footer { background:var(--black); border-top:1px solid var(--border); padding:60
 <a href="https://wa.me/5493572409473?text=Hola,%20me%20comunico%20desde%20la%20página%20web" class="whatsapp-float" target="_blank" aria-label="Consultar por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
-
 <script>
 // ── ANIMACIÓN DE CONTADORES ──
 function animateCounter(el, startVal, targetVal, suffix='', duration=2000) {
@@ -930,7 +946,6 @@ window.addEventListener('load', () => {
   }
 });
 
-// Respaldo de click por si algo falla en el load
 splash.addEventListener('click', hideSplash); 
 
 // ── HEADER SCROLL ──
@@ -970,7 +985,7 @@ function checkReveal() {
   });
 }
 window.addEventListener("scroll", checkReveal);
-setTimeout(checkReveal, 300); // Check inicial
+setTimeout(checkReveal, 300);
 
 // ── FAQ ACORDEÓN ──
 document.querySelectorAll('.faq-question').forEach(q => {
@@ -982,8 +997,8 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
-// ── DIAGNÓSTICO EXPRESS LOGIC ──
-function runDiagnostic() {
+// ── DIAGNÓSTICO EXTREMO (HARDWARE SCANNER) ──
+async function runExtremeDiagnostic() {
   const start = document.getElementById('diag-start');
   const running = document.getElementById('diag-running');
   const results = document.getElementById('diag-results');
@@ -995,48 +1010,136 @@ function runDiagnostic() {
 
   let step = 0;
   const interval = setInterval(() => {
-    step += 5;
+    step += 2; 
     progress.style.width = step + '%';
-
-    if (step < 40) status.innerText = "Midiendo latencia de CPU...";
-    else if (step < 70) status.innerText = "Comprobando estabilidad de red...";
-    else if (step < 90) status.innerText = "Analizando caché del navegador...";
-    else status.innerText = "Generando informe...";
+    
+    if (step < 20) status.innerText = "Interrogando núcleos de CPU...";
+    else if (step < 40) status.innerText = "Mapeando unidad gráfica (GPU)...";
+    else if (step < 60) status.innerText = "Analizando sensores y conectividad...";
+    else if (step < 80) status.innerText = "Calculando caché y almacenamiento...";
+    else status.innerText = "Generando reporte técnico encriptado...";
 
     if (step >= 100) {
       clearInterval(interval);
-      showResults();
+      renderExtremeResults();
     }
-  }, 100);
+  }, 40);
 
-  function showResults() {
+  async function renderExtremeResults() {
     running.style.display = 'none';
     results.style.display = 'block';
 
-    // Benchmark simple
-    const t0 = performance.now();
-    for (let i = 0; i < 1000000; i++) { let x = i * i; }
-    const t1 = performance.now();
-    const cpuSpeed = (t1 - t0).toFixed(2);
+    // 1. CPU
+    const cores = navigator.hardwareConcurrency || "Oculto";
+    document.getElementById('res-cpu-cores').innerText = cores !== "Oculto" ? cores + " Hilos" : cores;
 
-    const netSpeed = navigator.connection ? navigator.connection.downlink + " Mbps" : "Estable";
-    
-    document.getElementById('res-cpu').innerText = cpuSpeed < 10 ? "Excelente" : "Lento";
-    document.getElementById('res-net').innerText = netSpeed;
-    
-    let health = cpuSpeed < 10 ? "Óptimo" : "Requiere Limpieza";
-    document.getElementById('res-health').innerText = health;
+    // 2. RAM (Aproximada, iOS suele bloquear esto)
+    const ram = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Privada";
+    document.getElementById('res-ram').innerText = ram !== "Privada" ? "~" + ram : "Por OS";
 
-    const advice = document.getElementById('diag-advice');
-    const waLink = document.getElementById('wa-result-link');
-    
-    if (cpuSpeed > 10) {
-      advice.innerHTML = "⚠️ <strong>Tu equipo muestra signos de lentitud.</strong> Podría ser un problema de batería o saturación de sistema.";
-    } else {
-      advice.innerHTML = "✅ <strong>Hardware saludable.</strong> Recomendamos un mantenimiento preventivo cada 6 meses.";
+    // 3. GPU via WebGL
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    let gpuName = "Integrada Genérica";
+    if (gl) {
+      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (debugInfo) {
+        gpuName = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+        gpuName = gpuName.split(' ')[0].replace('ANGLE(', ''); 
+      }
     }
+    document.getElementById('res-gpu').innerText = gpuName;
+
+    // 4. STORAGE (Navegador)
+    if (navigator.storage && navigator.storage.estimate) {
+      try {
+        const {quota, usage} = await navigator.storage.estimate();
+        document.getElementById('res-storage-total').innerText = (quota / (1024**3)).toFixed(1) + " GB";
+        document.getElementById('res-storage-free').innerText = ((quota - usage) / (1024**3)).toFixed(1) + " GB";
+      } catch(e) {
+        document.getElementById('res-storage-total').innerText = "Protegido";
+        document.getElementById('res-storage-free').innerText = "Protegido";
+      }
+    } else {
+       document.getElementById('res-storage-total').innerText = "N/A";
+       document.getElementById('res-storage-free').innerText = "N/A";
+    }
+
+    // 5. BATERIA
+    if (navigator.getBattery) {
+      try {
+        const bat = await navigator.getBattery();
+        document.getElementById('res-battery-level').innerText = Math.round(bat.level * 100) + "%";
+        document.getElementById('res-battery-status').innerText = bat.charging ? "Cargando ⚡" : "Descargando";
+        if(bat.level <= 0.2) document.getElementById('res-battery-level').classList.add('highlight');
+      } catch(e) {
+        document.getElementById('res-battery-level').innerText = "Restringido";
+        document.getElementById('res-battery-status').innerText = "Restringido";
+      }
+    } else {
+      document.getElementById('res-battery-level').innerText = "Oculto (iOS)";
+      document.getElementById('res-battery-status').innerText = "Oculto (iOS)";
+    }
+
+    // 6. RED Y LATENCIA
+    if (navigator.connection) {
+      document.getElementById('res-net-type').innerText = navigator.connection.effectiveType ? navigator.connection.effectiveType.toUpperCase() : "Wi-Fi / Datos";
+      document.getElementById('res-net-speed').innerText = navigator.connection.downlink ? navigator.connection.downlink + " Mbps" : "Estable";
+    } else {
+      document.getElementById('res-net-type').innerText = "Activa";
+      document.getElementById('res-net-speed').innerText = "Sin lectura";
+    }
+
+    const navEntries = performance.getEntriesByType("navigation");
+    if (navEntries.length > 0) {
+        document.getElementById('res-ping').innerText = Math.round(navEntries[0].domInteractive) + " ms";
+    } else {
+        document.getElementById('res-ping').innerText = "--";
+    }
+
+    // 7. PANTALLA & SENSORES
+    document.getElementById('res-screen').innerText = `${window.screen.width}x${window.screen.height} px`;
+    document.getElementById('res-touch').innerText = navigator.maxTouchPoints > 0 ? navigator.maxTouchPoints + " Puntos" : "No detectado";
     
-    waLink.href += `CPU:${health}%20Net:${netSpeed}`;
+    const isP3 = window.matchMedia("(color-gamut: p3)").matches;
+    document.getElementById('res-gamut').innerText = isP3 ? "DCI-P3 (Cine)" : "sRGB (Estándar)";
+
+    if (window.DeviceOrientationEvent) {
+      document.getElementById('res-gyro').innerText = "Detectado / OK";
+    } else {
+      document.getElementById('res-gyro').innerText = "Inactivo";
+    }
+
+    // 8. OS & MOTOR WEB
+    document.getElementById('res-os').innerText = navigator.platform;
+    document.getElementById('res-lang').innerText = navigator.language.toUpperCase();
+    
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    document.getElementById('res-engine').innerText = isIOS ? "WebKit (Apple)" : "Blink/V8 (Google)";
+
+    // 9. BENCHMARK (ESTRÉS DE CPU REAL)
+    const t0 = performance.now();
+    for (let i = 0; i < 3000000; i++) { Math.sqrt(i); }
+    const cpuScore = (performance.now() - t0).toFixed(0);
+    document.getElementById('res-perf').innerText = cpuScore + " ms";
+
+    // ── EVALUACIÓN Y CONSEJO ──
+    const advice = document.getElementById('diag-advice');
+    let alertLevel = 0;
+
+    if (cpuScore > 35) alertLevel++; 
+    if (cores !== "Oculto" && cores <= 4) alertLevel++;
+    
+    if (alertLevel > 0) {
+      advice.innerHTML = "⚠️ <strong>ALERTA DE RENDIMIENTO:</strong> Detectamos latencia en el procesamiento de datos. Esto suele deberse a desgaste en la batería (que limita el voltaje del procesador) o saturación de caché térmica. Recomendamos un diagnóstico físico urgente.";
+    } else {
+      advice.innerHTML = "✅ <strong>HARDWARE ESTABLE:</strong> Los procesadores principales responden velozmente. Si tenés fallas con tu equipo, es altamente probable que sean componentes periféricos (pin de carga, módulo de pantalla o flex desgastado).";
+    }
+
+    // ── LINK DE WHATSAPP DINÁMICO CON EL REPORTE ──
+    const waLink = document.getElementById('wa-result-link');
+    const msg = `Hola! Hice la auditoría técnica en la web. Resultados principales:\n- CPU: ${cores} hilos\n- Velocidad: ${cpuScore}ms\n- Gráficos: ${gpuName}\nNecesito coordinar una revisión.`;
+    waLink.href = `https://wa.me/5493572409473?text=${encodeURIComponent(msg)}`;
   }
 }
 </script>
