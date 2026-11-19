@@ -276,7 +276,7 @@ section { position:relative; z-index:1; padding: 100px 5%; }
 /* ─── SERVICIOS ─── */
 #servicios { background: var(--surface); }
 .services-header { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; margin-bottom:50px; }
-.services-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:15px; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap:15px; }
 .service-card { background: var(--surface2); padding: 40px 30px; border-radius: 12px; position:relative; overflow:hidden; transition:all 0.3s; border: 1px solid rgba(255,255,255,0.02); }
 .service-card::after { content:''; position:absolute; bottom:0; left:0; width:0; height:3px; background:var(--orange); transition: width 0.4s ease; }
 .service-card:hover::after { width:100%; }
@@ -312,7 +312,7 @@ section { position:relative; z-index:1; padding: 100px 5%; }
 
 /* ─── RESEÑAS ─── */
 #opiniones { background: var(--surface); }
-.reviews-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1200px; margin:0 auto; }
+.reviews-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap:20px; max-width:1200px; margin:0 auto; }
 .review-card { background:var(--surface2); padding:30px; border-radius:12px; border:1px solid rgba(255,255,255,0.02); display:flex; flex-direction:column; gap:15px; }
 .review-stars { color:#FFD700; font-size:1.1rem; }
 .review-text { color:var(--white); font-style:italic; line-height:1.6; font-size:0.95rem; }
